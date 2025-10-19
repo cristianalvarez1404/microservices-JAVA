@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface StoreService {
     public StoreDto createStore(StoreDto storeDto, User user);
-    public StoreDto getStoreById(Long id);
+    public StoreDto getStoreById(Long id) throws Exception;
     public List<StoreDto> getAllStores();
-    public StoreDto getStoreByAdmin(String name);
+    public StoreDto getStoreByAdmin();
     public StoreDto updateStore(Long id, StoreDto storeDto);
-    public StoreDto deleteStore(Long id);
+    public void deleteStore(Long id);
     public StoreDto getStoreByEmployee();
 }

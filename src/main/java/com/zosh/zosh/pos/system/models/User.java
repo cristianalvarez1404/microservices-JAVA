@@ -25,6 +25,9 @@ public class User {
     @Email(message = "Email should be valid")
     private String email;
 
+    @ManyToOne
+    private Store store;
+
     private String phone;
 
     @Column(nullable = false)
@@ -109,4 +112,11 @@ public class User {
         this.lastLogin = lastLogin;
     }
 
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
 }

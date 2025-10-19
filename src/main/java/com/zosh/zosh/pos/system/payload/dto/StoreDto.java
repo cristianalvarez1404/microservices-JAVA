@@ -5,9 +5,10 @@ import com.zosh.zosh.pos.system.models.StoreContact;
 import com.zosh.zosh.pos.system.models.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.OneToOne;
-
+import lombok.Data;
 import java.time.LocalDateTime;
 
+@Data
 public class StoreDto {
     private Long id;
     private String brand;
