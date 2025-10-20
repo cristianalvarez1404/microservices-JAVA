@@ -1,5 +1,6 @@
 package com.zosh.zosh.pos.system.service.impl;
 
+import com.zosh.zosh.pos.system.domain.StoreStatus;
 import com.zosh.zosh.pos.system.exceptions.UserException;
 import com.zosh.zosh.pos.system.mapper.StoreMapper;
 import com.zosh.zosh.pos.system.models.Store;
@@ -98,5 +99,16 @@ public class StoreServiceImpl implements StoreService {
         }
 
         return StoreMapper.toDto(currentUser.getStore());
+    }
+
+    @Override
+    public StoreDto moderateStore(Long id, StoreStatus status) throws Exception {
+        Store store = storeRepository.findById(id).orElseThrow(
+                ()-> new Exception("store not found...")
+        );
+
+        store.setStatus(status);
+        Store updatedStore = storeRepository.save(store);
+        return StoreMapper.toDto(updatedStore);
     }
 }
